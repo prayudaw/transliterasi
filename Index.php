@@ -10,6 +10,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Amiri&display=swap" rel="stylesheet">
+  <link rel="icon" href="asset/logo.png">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -32,13 +33,13 @@
       border-color: #14b8a6;
       color: #0f766e;
     }
-    .active-mode {
-  background-color: #fffbeb;
-  border-color: #fbbf24;
-  color: #92400e;
-  box-shadow: 0 0 0 2px #facc15 inset;
-}
 
+    .active-mode {
+      background-color: #fffbeb;
+      border-color: #fbbf24;
+      color: #92400e;
+      box-shadow: 0 0 0 2px #facc15 inset;
+    }
   </style>
 </head>
 
@@ -46,29 +47,29 @@
 
   <!-- Header Gambar Background -->
   <div class="relative w-full h-48 flex items-center justify-center bg-cover bg-center"
-    style="background-image: url('asset/header-book.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    style="background-image: url('asset/quran-and-tafsir.webp');">
+    <div class="absolute inset-0  bg-opacity-60"></div>
     <div class="relative z-10 flex w-full max-w-6xl mx-auto justify-between items-center px-6">
-      <h1 class="text-white text-xl sm:text-5xl font-extrabold font-montserrat">
-        Arabic Transliteration using LC
+      <h1 class="text-black text-xl sm:text-4xl font-extrabold font-montserrat">
+        Arabic Transliteration using Library of Congress
       </h1>
-      <h1 class="text-white text-3xl sm:text-5xl font-extrabold font-arabic text-right">
-        رومنة اللغة العربية using LC
-      </h1>
+      <div class="flex items-center gap-4">
+        <!-- <h1 class="text-white text-3xl sm:text-5xl font-extrabold font-arabic text-right">
+          رومنة اللغة العربية using Library of Congress
+        </h1> -->
+        <img src="asset/logo.png" alt="Logo" class="h-20 sm:h-28">
+      </div>
     </div>
+
   </div>
 
   <!-- Konten Form -->
   <div class="p-6 sm:p-8 w-full max-w-6xl mx-auto">
 
-    <!-- <h2 class="text-xl sm:text-2xl font-semibold text-center text-orange-500 mb-8">
-      (Dari Gambar atau Teks)
-    </h2> -->
-
     <div class="mt-4 p-2 bg-stone-200 border border-blue-200 shadow-inner">
-    <p class="text-left text-xs text-gray-600">
-      Aplikasi ini digunakan untuk transliterasi teks Arab menggunakan pedoman LC (Library of Congress). Unggah foto yang berisi teks Arab, atau ketik teks Arab langsung di bawah ini untuk ditransliterasi.
-    </p>
+      <p class="text-left text-xs text-gray-600">
+        Aplikasi ini digunakan untuk transliterasi teks Arab menggunakan pedoman LC (Library of Congress). Unggah gambar yang berisi teks Arab, atau ketik teks Arab langsung di bawah ini untuk ditransliterasi.
+      </p>
     </div>
 
     <!-- Error -->
@@ -77,21 +78,21 @@
         <?php echo htmlspecialchars($error); ?>
       </div>
     <?php endif; ?>
-    
+
     <form action="" method="POST" enctype="multipart/form-data">
 
       <!-- Tombol Mode -->
       <div class="flex justify-left mb-8 mt-4">
-        <button type="button" id="imageModeBtn" 
-        class="px-6 py-3 bg-amber-50 border border-gray-300 text-gray-700 font-semibold flex items-center gap-2 bg-white hover:bg-amber-200 hover:border-amber-300 transition duration-200 shadow-sm">
-        <span class="text-xl">🖼️</span> <span>Gambar</span>
-    </button>
-    
-    <button type="button" id="textModeBtn"
-    class="px-6 py-3 bg-amber-50 border border-gray-300 text-gray-700 font-semibold flex items-center gap-2 bg-white hover:bg-amber-200 hover:border-amber-300 transition duration-200 shadow-sm">
-    <span class="text-xl">📝</span> <span>Teks</span>
-    </button>
-    </div>
+        <button type="button" id="imageModeBtn"
+          class="px-6 py-3 bg-amber-50 border border-gray-300 text-gray-700 font-semibold flex items-center gap-2 bg-white hover:bg-amber-200 hover:border-amber-300 transition duration-200 shadow-sm">
+          <span class="text-xl">🖼️</span> <span>Gambar</span>
+        </button>
+
+        <button type="button" id="textModeBtn"
+          class="px-6 py-3 bg-amber-50 border border-gray-300 text-gray-700 font-semibold flex items-center gap-2 bg-white hover:bg-amber-200 hover:border-amber-300 transition duration-200 shadow-sm">
+          <span class="text-xl">📝</span> <span>Teks</span>
+        </button>
+      </div>
 
 
       <!-- Input Text -->
@@ -107,7 +108,7 @@
         <label for="imageUpload" class="block text-lg font-semibold text-gray-700 mb-2">Unggah Gambar:</label>
         <input type="file" id="imageUpload" name="uploaded_image"
           class="w-full p-3 border border-gray-300 rounded-lg">
-          
+
         <div id="imagePreview" class="mt-4 hidden">
           <img src="#" alt="Pratinjau Gambar" class="max-w-full h-auto rounded-lg shadow-md border border-gray-200">
         </div>
@@ -165,7 +166,7 @@
     });
 
     // Mode Switching + default aktif Images
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
       const textBtn = document.getElementById('textModeBtn');
       const imageBtn = document.getElementById('imageModeBtn');
       const textInput = document.getElementById('textInputContainer');
@@ -191,29 +192,29 @@
       // Aktifkan Images default
       activateImageMode();
     });
-    document.addEventListener('DOMContentLoaded', function () {
-  const textBtn = document.getElementById('textModeBtn');
-  const imageBtn = document.getElementById('imageModeBtn');
+    document.addEventListener('DOMContentLoaded', function() {
+      const textBtn = document.getElementById('textModeBtn');
+      const imageBtn = document.getElementById('imageModeBtn');
 
-  const textInput = document.getElementById('textInputContainer');
-  const imageInput = document.getElementById('imageInputContainer');
+      const textInput = document.getElementById('textInputContainer');
+      const imageInput = document.getElementById('imageInputContainer');
 
-  textBtn.addEventListener('click', function () {
-    textBtn.classList.add('active-mode');
-    imageBtn.classList.remove('active-mode');
-    textInput.classList.remove('hidden');
-    imageInput.classList.add('hidden');
-  });
+      textBtn.addEventListener('click', function() {
+        textBtn.classList.add('active-mode');
+        imageBtn.classList.remove('active-mode');
+        textInput.classList.remove('hidden');
+        imageInput.classList.add('hidden');
+      });
 
-  imageBtn.addEventListener('click', function () {
-    imageBtn.classList.add('active-mode');
-    textBtn.classList.remove('active-mode');
-    imageInput.classList.remove('hidden');
-    textInput.classList.add('hidden');
-  });
-});
-
+      imageBtn.addEventListener('click', function() {
+        imageBtn.classList.add('active-mode');
+        textBtn.classList.remove('active-mode');
+        imageInput.classList.remove('hidden');
+        textInput.classList.add('hidden');
+      });
+    });
   </script>
 
 </body>
+
 </html>
