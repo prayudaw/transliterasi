@@ -117,15 +117,15 @@
       <!-- Tombol Submit -->
       <div class="flex justify-center gap-4 mt-8">
         <button type="submit"
-          class="w-72 py-4 px- rounded-lg text-white font-bold text-lg transition duration-300 ease-in-out transform hover:scale-105 bg-orange-950 hover:bg-amber-900 shadow-lg hover:shadow-xl"
-          name="action" value="act_1">
+          class="w-72 py-4 px-6 rounded-lg text-white font-bold text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg hover:shadow-xl"
+          style="background-color: #28555B;" name="action" value="act_1">
           Transliterasikan Sesuai LC (Library of Congress)
         </button>
         <button type="submit"
-          class="w-72 py-4 px-6 rounded-lg text-white font-bold text-lg transition duration-300 ease-in-out transform hover:scale-105 bg-orange-950 hover:bg-amber-900 shadow-lg hover:shadow-xl"
-          name="action" value="act_2">
+          class="w-72 py-4 px-6 rounded-lg text-white font-bold text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg hover:shadow-xl"
+          style="background-color: #28555B;" name="action" value="act_2">
           Transliterasikan Sesuai LC (Library of Congress) tanpa Diakritik
-        </button>
+    </button>
       </div>
 
     </form>
