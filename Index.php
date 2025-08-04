@@ -40,6 +40,60 @@
       color: #92400e;
       box-shadow: 0 0 0 2px #facc15 inset;
     }
+
+    #keyboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+      gap: 8px;
+      padding: 10px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+    }
+
+    .key {
+      padding: 15px 5px;
+      font-size: 20px;
+      text-align: center;
+      background-color: #2A5C60;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s, box-shadow 0.2s;
+      user-select: none;
+      color: #FFF;
+    }
+
+    .key:hover {
+      background-color: #dde1e5;
+    }
+
+    .key:active {
+      background-color: #d3d9df;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .special-key {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .special-key:hover {
+      background-color: #5a6268;
+    }
+
+    .special-key:active {
+      background-color: #545b62;
+    }
+
+    .space-key {
+      grid-column: span 6;
+      background-color: #000;
+    }
+
+    .backspace-key {
+      grid-column: span 2;
+      background-color: #000;
+    }
   </style>
 </head>
 
@@ -100,7 +154,61 @@
         <label for="arabicTextInput" class="block text-lg font-semibold text-gray-700 mb-2">Teks Arab:</label>
         <textarea id="arabicTextInput" name="arabic_text"
           class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 text-right font-arabic"
-          rows="5" dir="rtl"></textarea>
+          rows="5" dir="rtl" placeholder="...اكتب هنا"></textarea>
+        <div id="keyboard">
+          <div class="key" data-key="ذ">ذ</div>
+          <div class="key" data-key="1">١</div>
+          <div class="key" data-key="2">٢</div>
+          <div class="key" data-key="3">٣</div>
+          <div class="key" data-key="4">٤</div>
+          <div class="key" data-key="5">٥</div>
+          <div class="key" data-key="6">٦</div>
+          <div class="key" data-key="7">٧</div>
+          <div class="key" data-key="8">٨</div>
+          <div class="key" data-key="9">٩</div>
+          <div class="key" data-key="0">٠</div>
+          <div class="key" data-key="-">-</div>
+          <div class="key" data-key="=">=</div>
+          <div class="key special-key backspace-key" data-key="Backspace">Hapus</div>
+
+          <div class="key" data-key="ض">ض</div>
+          <div class="key" data-key="ص">ص</div>
+          <div class="key" data-key="ث">ث</div>
+          <div class="key" data-key="ق">ق</div>
+          <div class="key" data-key="ف">ف</div>
+          <div class="key" data-key="غ">غ</div>
+          <div class="key" data-key="ع">ع</div>
+          <div class="key" data-key="ه">ه</div>
+          <div class="key" data-key="خ">خ</div>
+          <div class="key" data-key="ح">ح</div>
+          <div class="key" data-key="ج">ج</div>
+          <div class="key" data-key="د">د</div>
+          <div class="key" data-key="\">|</div>
+
+          <div class="key" data-key="ش">ش</div>
+          <div class="key" data-key="س">س</div>
+          <div class="key" data-key="ي">ي</div>
+          <div class="key" data-key="ب">ب</div>
+          <div class="key" data-key="ل">ل</div>
+          <div class="key" data-key="ا">ا</div>
+          <div class="key" data-key="ت">ت</div>
+          <div class="key" data-key="ن">ن</div>
+          <div class="key" data-key="م">م</div>
+          <div class="key" data-key="ك">ك</div>
+          <div class="key" data-key="ط">ط</div>
+
+          <div class="key" data-key="ئ">ئ</div>
+          <div class="key" data-key="ء">ء</div>
+          <div class="key" data-key="ؤ">ؤ</div>
+          <div class="key" data-key="ر">ر</div>
+          <div class="key" data-key="لا">لا</div>
+          <div class="key" data-key="ى">ى</div>
+          <div class="key" data-key="ة">ة</div>
+          <div class="key" data-key="و">و</div>
+          <div class="key" data-key="ز">ز</div>
+          <div class="key" data-key="ظ">ظ</div>
+          <div class="key special-key space-key" data-key=" ">Spasi</div>
+        </div>
       </div>
 
       <!-- Upload Gambar -->
@@ -125,7 +233,7 @@
           class="w-72 py-4 px-6 rounded-lg text-white font-bold text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg hover:shadow-xl"
           style="background-color: #28555B;" name="action" value="act_2">
           Transliterasikan Sesuai LC (Library of Congress) tanpa Diakritik
-    </button>
+        </button>
       </div>
 
     </form>
@@ -212,6 +320,41 @@
         imageInput.classList.remove('hidden');
         textInput.classList.add('hidden');
       });
+    });
+
+
+    const textarea = document.getElementById('arabicTextInput');
+    const keyboard = document.getElementById('keyboard');
+
+    keyboard.addEventListener('click', function(e) {
+      if (e.target.classList.contains('key')) {
+        const key = e.target.dataset.key;
+
+        // Fokus ke textarea
+        textarea.focus();
+
+        // Dapatkan posisi kursor saat ini
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        const text = textarea.value;
+
+        if (key === 'Backspace') {
+          if (start > 0) {
+            // Hapus karakter sebelum kursor
+            textarea.value = text.substring(0, start - 1) + text.substring(end);
+            // Pindahkan kursor
+            textarea.selectionStart = textarea.selectionEnd = start - 1;
+          }
+        } else if (key === ' ') {
+          // Masukkan spasi
+          textarea.value = text.substring(0, start) + ' ' + text.substring(end);
+          textarea.selectionStart = textarea.selectionEnd = start + 1;
+        } else {
+          // Masukkan karakter Arab atau harakat
+          textarea.value = text.substring(0, start) + key + text.substring(end);
+          textarea.selectionStart = textarea.selectionEnd = start + key.length;
+        }
+      }
     });
   </script>
 
