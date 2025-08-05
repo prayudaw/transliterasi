@@ -101,17 +101,17 @@
 
   <!-- Header Gambar Background -->
   <div class="relative w-full h-48 flex items-center justify-center bg-cover bg-center"
-    style="background-image: url('asset/quran-and-tafsir.webp');">
+    style="background-image:url('asset/header.png');">
     <div class="absolute inset-0  bg-opacity-60"></div>
     <div class="relative z-10 flex w-full max-w-6xl mx-auto justify-between items-center px-6">
-      <h1 class="text-black text-xl sm:text-4xl font-extrabold font-montserrat">
+      <!-- <h1 class="text-black text-xl sm:text-4xl font-extrabold font-montserrat">
         Arabic Transliteration using Library of Congress
-      </h1>
+      </h1> -->
       <div class="flex items-center gap-4">
         <!-- <h1 class="text-white text-3xl sm:text-5xl font-extrabold font-arabic text-right">
           رومنة اللغة العربية using Library of Congress
         </h1> -->
-        <img src="asset/logo.png" alt="Logo" class="h-20 sm:h-28">
+        <img src="asset/logo-2.png" alt="Logo" class="h-35 sm:h-28">
       </div>
     </div>
 
