@@ -97,7 +97,7 @@
   </style>
 </head>
 
-<body class="min-h-screen bg-gray-50" style="background-image: url('asset/background.jpg'); background-repeat:no-repeat;background-attachment: fixed;background-position: center; ">
+<body class="min-h-screen bg-gray-50" style="background-image: linear-gradient(#FFF, #ffffff9b, #7298A6); ">
 
   <!-- Header Gambar Background -->
   <div class="relative w-full h-48 flex items-center justify-center bg-cover bg-center"
