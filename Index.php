@@ -97,11 +97,11 @@
   </style>
 </head>
 
-<body class="min-h-screen bg-gray-50">
+<body class="min-h-screen bg-gray-50" style="background-image: url('asset/background.jpg'); background-repeat:no-repeat;background-attachment: fixed;background-position: center; ">
 
   <!-- Header Gambar Background -->
   <div class="relative w-full h-48 flex items-center justify-center bg-cover bg-center"
-    style="background-image:url('asset/header.png');">
+    style="background-image:url('asset/header_fix.png');">
     <div class="absolute inset-0  bg-opacity-60"></div>
     <div class="relative z-10 flex w-full max-w-6xl mx-auto justify-between items-center px-6">
       <!-- <h1 class="text-black text-xl sm:text-4xl font-extrabold font-montserrat">
@@ -111,7 +111,7 @@
         <!-- <h1 class="text-white text-3xl sm:text-5xl font-extrabold font-arabic text-right">
           رومنة اللغة العربية using Library of Congress
         </h1> -->
-        <img src="asset/logo-2.png" alt="Logo" class="h-35 sm:h-28">
+        <img src="asset/logo_fix.png" alt="Logo" class="h-35 sm:h-28">
       </div>
     </div>
 
